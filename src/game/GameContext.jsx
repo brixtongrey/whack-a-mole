@@ -1,5 +1,8 @@
 import { createContext } from "react";
 
+const NUM_HOLES = 9;
+const TIME_LIMIT = 10;
+
 const GameContext = createContext();
 
 export function GameProvider({ children }) {

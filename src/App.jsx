@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import GameContext from "./game/GameContext";
+import ScorePanel from "./components/ScorePanel";
 
 function App() {
 
-  const num = useContext(GameContext)
-  console.log("num-->", num);
-
   return (
   <>
-  <h1>App</h1>
+  <h1>Whack-a-Mole</h1>
+  <>
+  <ScorePanel/>
+  </>
   </>
   );
 }
