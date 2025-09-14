@@ -15,7 +15,7 @@ export function GameProvider({ children }) {
   // keeps track of the game time, it ends the round by calling stop
   useEffect(() => {
     if (time <= 0 && playing) {
-      //stop
+      stop();
     }
   }, [time, [playing]]);
 
@@ -50,15 +50,15 @@ export function GameProvider({ children }) {
 }
 
 // creating an array of 9 holes - need to place mole in random hole
-function makeHoles(prev=[]) {
-    const newField = Array(NUM_HOLES).fill(false);
+function makeHoles(prev = []) {
+  const newField = Array(NUM_HOLES).fill(false);
 
-    let mole = Math.floor(Math.random() * NUM_HOLES);
-    while(prev[mole]) {
-        mole = Math.floor(Math.random() * NUM_HOLES)
-    }
-        newField[mole] = true;
-        return newField;
+  let mole = Math.floor(Math.random() * NUM_HOLES);
+  while (prev[mole]) {
+    mole = Math.floor(Math.random() * NUM_HOLES);
+  }
+  newField[mole] = true;
+  return newField;
 }
 
 export default GameContext;
