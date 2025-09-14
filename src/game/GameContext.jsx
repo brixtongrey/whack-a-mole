@@ -22,6 +22,7 @@ export function GameProvider({ children }) {
   const start = () => {
     setScore(0);
     setPlaying(true);
+    setHoles(makeHoles); // generate holes array
     timer.current = setInterval(
       () => setTime((prevTime) => prevTime - 1),
       1000
@@ -36,6 +37,18 @@ export function GameProvider({ children }) {
   };
 
   return <GameContext.Provider value={5}>{children}</GameContext.Provider>;
+}
+
+// creating an array of 9 holes - need to place mole in random hole
+function makeHoles(prev=[]) {
+    const newField = Array(NUM_HOLES).fill(false);
+
+    let mole = Math.floor(Math.random() * NUM_HOLES);
+    while(prev[mole]) {
+        mole = Math.floor(Math.random() * NUM_HOLES)
+    }
+        newField[mole] = true;
+        return newField;
 }
 
 export default GameContext;
