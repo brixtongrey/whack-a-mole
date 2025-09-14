@@ -36,7 +36,17 @@ export function GameProvider({ children }) {
     setTime(TIME_LIMIT);
   };
 
-  return <GameContext.Provider value={5}>{children}</GameContext.Provider>;
+  const value = {
+    holes,
+    score,
+    time,
+    timeLimit: TIME_LIMIT,
+    playing,
+    start,
+    stop,
+  };
+
+  return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 }
 
 // creating an array of 9 holes - need to place mole in random hole

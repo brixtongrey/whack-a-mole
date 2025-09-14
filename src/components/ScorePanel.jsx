@@ -1,14 +1,18 @@
-
+import { useContext } from "react";
+import GameContext from "../game/GameContext";
 
 function ScorePanel() {
+
+    const { score, time } = useContext(GameContext);
+
     return (
        <>
        <div className="scoreboard">
         <div className="chip">
-            Score <strong>11</strong>
+            Score <strong>{score}</strong>
         </div>
         <div className="chip">
-            Time <strong>10</strong>
+            Time <strong>{time}</strong>
         </div>
         <button className="btn btn-secondary">Restart</button>
        </div>
