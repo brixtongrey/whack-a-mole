@@ -3,7 +3,7 @@ import GameContext from "../game/GameContext";
 
 function Welcome() {
 
-    const { start } = useContext(GameContext);
+    const { start, highScore } = useContext(GameContext);
 
     return (
         <>
@@ -11,6 +11,9 @@ function Welcome() {
         <p>Welcome to Whack-A-Mole!</p>
         <p>Whack a mole to score points before time runs out</p>
         <button onClick={start}>Start Game</button>
+
+            {highScore > 0 && <p>High Score:{highScore}</p>}
+     
         </section>
         </>
     );

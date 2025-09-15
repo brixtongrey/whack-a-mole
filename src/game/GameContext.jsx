@@ -8,6 +8,7 @@ const GameContext = createContext();
 export function GameProvider({ children }) {
   const [holes, setHoles] = useState();
   const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [time, setTime] = useState(TIME_LIMIT);
   const [playing, setPlaying] = useState(false);
   const timer = useRef();
@@ -34,6 +35,7 @@ export function GameProvider({ children }) {
     setPlaying(false);
     clearInterval(timer.current);
     setTime(TIME_LIMIT);
+    setHighScore((prevHigh) => Math.max(prevHigh, score));
   };
 
   // increment the score + move mole to different hole
@@ -45,6 +47,7 @@ export function GameProvider({ children }) {
   const value = {
     holes,
     score,
+    highScore,
     time,
     timeLimit: TIME_LIMIT,
     playing,
