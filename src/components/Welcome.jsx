@@ -12,7 +12,7 @@ function Welcome() {
         <p>Whack a mole to score points before time runs out</p>
         <button onClick={start}>Start Game</button>
 
-            {highScore > 0 && <p>High Score:{highScore}</p>}
+            {highScore > 0 && <p className="high-score">High Score:{highScore}</p>}
      
         </section>
         </>

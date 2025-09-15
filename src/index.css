@@ -1,11 +1,3 @@
-.hole {
-  background: url("/hole.png") no-repeat center/contain;
-}
-
-.mole {
-  background-image: url("/mole.png");
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +9,10 @@ body {
   background: #fff7ed;
   color: #2d2d2d;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
   padding: 1rem;
 }
 
@@ -25,39 +21,78 @@ h1 {
   color: #b45309;
 }
 
+.welcome {
+  background: #fffbeb;
+  border: 2px solid #fde68a;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.welcome p {
+margin-bottom: 1rem;
+font-size: 1.15rem;
+line-height: 1.6;
+}
+
+h1, .welcome p:first-child {
+  color: #b45309;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  font-size: 1.6rem;
+}
+
 /* Buttons */
 button {
   padding: 0.5rem 1.25rem;
   border: none;
   border-radius: 999px;
   background: #f59e0b;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
-  transition: transform 0.1s ease, background 0.15s ease;
+  transition: transform 0.1s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
+
 button:hover {
-  background: #0000ff;
+  background: #d97706;
   cursor: pointer;
-  transform: translateY(-1px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
 }
 button:active {
   transform: translateY(1px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* High Score Display */
+.high-score {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #92400e;
 }
 
 .scoreboard {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
+
 .scoreboard p {
   background: #fffbeb; /* pale yellow card */
   border: 1px solid #fde68a;
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
-  font-weight: 500;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
   min-width: 5ch;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
 /* Field Layout */
@@ -68,9 +103,17 @@ button:active {
   grid-auto-rows: 80px;
   gap: 0.75rem;
   justify-content: center;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
+.hole {
+  background: url("/hole.png") no-repeat center/contain;
+  transition: transform 0.15s ease;
+}
+
+.mole {
+  background-image: url("/mole.png");
+}
 
 .hole.mole:hover {
   transform: scale(1.15);
@@ -84,6 +127,7 @@ button:active {
   padding: 0.45rem 0.85rem;
   font-weight: 600;
   min-width: 6ch;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
 .scoreboard {
@@ -93,12 +137,12 @@ button:active {
 /* timer bar container */
 .timer {
   width: min(420px, 90%);
-  height: 8px;
+  height: 10px;
   background: #fde68a;
   border: 1px solid #fcd34d;
   border-radius: 999px;
   overflow: hidden;
-  margin: 0.5rem auto 0;
+  margin: 0.75rem auto 0;
 }
 
 /* the filling part */
@@ -106,4 +150,11 @@ button:active {
   height: 100%;
   background: linear-gradient(90deg, #f59e0b, #d97706);
   transition: width 0.2s linear;
+  border-radius: 999px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
