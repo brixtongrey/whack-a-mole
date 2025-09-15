@@ -37,7 +37,7 @@ button {
   transition: transform 0.1s ease, background 0.15s ease;
 }
 button:hover {
-  background: #d97706;
+  background: #0000ff;
   cursor: pointer;
   transform: translateY(-1px);
 }
