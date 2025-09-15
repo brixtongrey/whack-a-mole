@@ -36,6 +36,12 @@ export function GameProvider({ children }) {
     setTime(TIME_LIMIT);
   };
 
+  // increment the score + move mole to different hole
+  const hop = () => {
+    setScore((prevScore) => prevScore + 1);
+    setHoles(makeHoles(holes))
+  };
+
   const value = {
     holes,
     score,
@@ -44,6 +50,7 @@ export function GameProvider({ children }) {
     playing,
     start,
     stop,
+    hop,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
