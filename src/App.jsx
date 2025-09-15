@@ -2,6 +2,7 @@ import { useContext } from "react";
 import GameContext from "./game/GameContext";
 import ScorePanel from "./components/ScorePanel";
 import Welcome from "./components/Welcome";
+import HoleField from "./components/HoleField"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
   {playing ? (
       <>
   <ScorePanel/>
+  <HoleField/>
   </>
   ) : (
   <Welcome/>
